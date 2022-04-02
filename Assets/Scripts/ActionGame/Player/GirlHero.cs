@@ -91,6 +91,15 @@ public class GirlHero : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (DialogueManager.GetInstance()!=null)
+        {
+            if (DialogueManager.GetInstance().dialogueIsPlaying)
+            {
+                anim.SetBool("Running", false);
+                StopAudio(runAudio);
+                return;
+            } 
+        }
         if (PauseControl.gameIsPaused) return;
 
         // 虚拟轴水平移动
@@ -172,7 +181,11 @@ public class GirlHero : MonoBehaviour
 
     void Update()
     {
-        if (PauseControl.gameIsPaused) return;
+        if (DialogueManager.GetInstance()!=null)
+        {
+            if (DialogueManager.GetInstance().dialogueIsPlaying) return;
+        }
+        if (PauseControl.gameIsPaused ) return;
 
         //使人物可以识别持续碰撞
         rb.WakeUp();

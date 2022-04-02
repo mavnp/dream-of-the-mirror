@@ -20,6 +20,10 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        if (DialogueManager.GetInstance()!=null)
+        {
+            if (DialogueManager.GetInstance().dialogueIsPlaying) return;
+        }
         // 虚拟轴水平移动
         if (inputController.dragging)
         {
