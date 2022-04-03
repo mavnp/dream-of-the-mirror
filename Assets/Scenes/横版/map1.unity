@@ -9421,6 +9421,19 @@ MonoBehaviour:
   playerName: Player
   playerAvatar: {fileID: 0}
   textSpeed: 0.05
+--- !u!114 &1240277785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240277783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c96c740d6349c4a906489bfa0f7569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI: {fileID: 761716887}
 --- !u!4 &1242172205 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1611103889828958472, guid: 305f584e42dd9d44ebef061c617a182e, type: 3}
@@ -12761,7 +12774,8 @@ MonoBehaviour:
   npcAvatar: {fileID: 0}
   nextDialogue: {fileID: 1972366785}
   timeNextDialogue: 1
-  triggerDialogue: 1
+  triggerDialogueWhenEnter: 1
+  triggerDialogueWhenInteract: 0
 --- !u!61 &1654832960
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14429,7 +14443,8 @@ MonoBehaviour:
   npcAvatar: {fileID: 0}
   nextDialogue: {fileID: 0}
   timeNextDialogue: 0
-  triggerDialogue: 0
+  triggerDialogueWhenEnter: 0
+  triggerDialogueWhenInteract: 0
 --- !u!61 &1972366788
 BoxCollider2D:
   m_ObjectHideFlags: 0

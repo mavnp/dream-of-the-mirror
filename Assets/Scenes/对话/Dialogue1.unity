@@ -255,8 +255,8 @@ MonoBehaviour:
   npcAvatar: {fileID: 0}
   nextDialogue: {fileID: 0}
   timeNextDialogue: 0
-  triggerDialogue: 0
-  girlHeroAnim: {fileID: 0}
+  triggerDialogueWhenEnter: 0
+  triggerDialogueWhenInteract: 0
 --- !u!61 &90441386
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -458,7 +458,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -606,7 +606,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 7.899994, y: -1.6999998}
   m_SizeDelta: {x: 101.26, y: 1.022}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1402,7 +1402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &854297650
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2394,7 +2394,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 906304806}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2592,8 +2592,8 @@ MonoBehaviour:
   npcAvatar: {fileID: 0}
   nextDialogue: {fileID: 1804784053}
   timeNextDialogue: 2
-  triggerDialogue: 1
-  girlHeroAnim: {fileID: 0}
+  triggerDialogueWhenEnter: 1
+  triggerDialogueWhenInteract: 0
 --- !u!1001 &1468410243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2862,6 +2862,19 @@ MonoBehaviour:
   playerName: Player
   playerAvatar: {fileID: 0}
   textSpeed: 0.05
+--- !u!114 &1524031514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524031507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c96c740d6349c4a906489bfa0f7569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI: {fileID: 1361354255}
 --- !u!1 &1538749510
 GameObject:
   m_ObjectHideFlags: 0
@@ -3265,8 +3278,8 @@ MonoBehaviour:
   npcAvatar: {fileID: 0}
   nextDialogue: {fileID: 90441383}
   timeNextDialogue: 3
-  triggerDialogue: 0
-  girlHeroAnim: {fileID: 0}
+  triggerDialogueWhenEnter: 0
+  triggerDialogueWhenInteract: 0
 --- !u!61 &1804784056
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3538,6 +3551,7 @@ MonoBehaviour:
   nextScene: Dialogue2
   time: 3
   enterWhenExitDialogue: 0
+  exitDialogueMode: 0
 --- !u!114 &1882934409 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4318831951785860572, guid: 0a1b8147ba86a464e86655b76cabf8c9, type: 3}
@@ -3565,7 +3579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1917469436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4010,7 +4024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2138139588
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4029,7 +4043,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 270, y: 270}
-  m_SizeDelta: {x: 450, y: 450}
+  m_SizeDelta: {x: 450, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2138139589
 MonoBehaviour:
