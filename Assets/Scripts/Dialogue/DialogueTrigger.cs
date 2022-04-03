@@ -20,7 +20,9 @@ public class DialogueTrigger : MonoBehaviour
 
     private bool playerInRange;
     //是否进入trigger范围就触发触发器
-    public bool triggerDialogue;
+    public bool triggerDialogueWhenEnter;
+    //是否按下互动键才触发
+    public bool triggerDialogueWhenInteract;
     //判定是否触发对话
     private bool trigger;
     private void Awake()
@@ -33,10 +35,16 @@ public class DialogueTrigger : MonoBehaviour
     private void Update()
     {
         //如果进入范围就触发的模式
-        if (playerInRange && triggerDialogue)
+        if (playerInRange && triggerDialogueWhenEnter)
         {
             trigger = true;
-            triggerDialogue = false;
+            triggerDialogueWhenEnter = false;
+        }
+
+        //如果按对话键就触发的模式
+        if (playerInRange && triggerDialogueWhenInteract && (Input.GetButtonDown("Dialogue")||Input.GetMouseButtonDown(0)))
+        {
+            trigger = true;
         }
 
         if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)

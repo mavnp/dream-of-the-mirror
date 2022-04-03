@@ -23,7 +23,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Player")]
     [SerializeField] private string playerName;
-    [SerializeField] private Sprite playerAvatar;
+    [SerializeField] private Sprite playerAvatar; 
     
     //下一个触发器的信息
     private bool haveNextDialogue;
@@ -83,26 +83,48 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetButtonDown("Dialogue"))//按下互动键
+        
+
+        if (Input.GetButtonDown("Dialogue")||(Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)||(Input.GetMouseButtonDown(0)))//按下互动键
         {
-            if (textIsFinished)
+            if (currentStory.currentChoices.Count != 0)
             {
-                //主角发言时切换到主角头像与名字
                 if (makeChoice)
                 {
-                    makeChoice = false;
-                    nameText.text = npcName;
-                    avatar.sprite = npcAvatar;
+                    if (textIsFinished)
+                    {
+                        //主角发言时切换到主角头像与名字
+                        makeChoice = false;
+                        nameText.text = playerName;
+                        avatar.sprite = playerAvatar;
+                        //如果文本播放完毕则进如下行
+                        ContinueStory();
+                    }
+                    else
+                    {
+                        //否则停止播放文本，直接全部展出，并且滞后0.2s切换textIsFinished开关，保证下次按下互动键才切换到下行
+                        StopCoroutine("DisPlayDialogue");
+                        dialogueText.text = text;
+                        StartCoroutine(FinishText());
+                    }
                 }
-                //如果文本播放完毕则进如下行
-                ContinueStory();
             }
             else
             {
-                //否则停止播放文本，直接全部展出，并且滞后0.2s切换textIsFinished开关，保证下次按下互动键才切换到下行
-                StopCoroutine("DisPlayDialogue");
-                dialogueText.text = text;
-                StartCoroutine(FinishText());
+                if (textIsFinished)
+                {
+                    nameText.text = npcName;
+                    avatar.sprite = npcAvatar;
+                    //如果文本播放完毕则进如下行
+                    ContinueStory();
+                }
+                else
+                {
+                    //否则停止播放文本，直接全部展出，并且滞后0.2s切换textIsFinished开关，保证下次按下互动键才切换到下行
+                    StopCoroutine("DisPlayDialogue");
+                    dialogueText.text = text;
+                    StartCoroutine(FinishText());
+                }
             }
         }
     }
@@ -216,7 +238,7 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator SelectFirstChoice()
     {
         EventSystem.current.SetSelectedGameObject(null);
-        yield return new WaitForEndOfFrame();
+        yield return null;
         EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
     }
     
@@ -231,7 +253,8 @@ public class DialogueManager : MonoBehaviour
 
     public IEnumerator turnChoice()
     {
-        yield return new WaitForSeconds(0.1f); 
+        //yield return new WaitForSeconds(0.1f); 
+        yield return null;
         makeChoice = true;
         nameText.text = playerName;
         avatar.sprite = playerAvatar;
